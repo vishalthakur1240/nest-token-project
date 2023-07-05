@@ -21,6 +21,9 @@ export class StudentsModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(TokenMiddleware)
-      .forRoutes({ path: '/student', method: RequestMethod.POST });
+      .forRoutes(
+        { path: '/student', method: RequestMethod.POST },
+        { path: '/student', method: RequestMethod.GET },
+      );
   }
 }
